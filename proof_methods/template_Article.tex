@@ -1,0 +1,41 @@
+\documentclass[]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+
+%opening
+\title{Methods of Proof}
+\author{Leandro Borges}
+
+\begin{document}
+
+\maketitle
+
+
+
+\section{Direct Proof}
+We want to prove that $P \implies Q$, so we assume that $P$ is true and, by using a sequence of logical steps, we reach the conclusion that $Q$ is also true.\\
+
+\textbf{Example 1.1.}\\\\
+\textit{\textbf{Theorem.}} Let $n \in \mathbb{N}$. If $n$ is odd, then $n^2$ is also odd.
+\\\\\textit{\textbf{Proof.}} $P$ is the proposition $n$ is odd and $Q$ is the proposition $n^2$ is odd. By using the direct method we assume that P is true, then we have that $n = 2m + 1$, where $m \in \mathbb{N}$ . So we can rewrite $n^2$ as follows: $n^2 = (2m + 1)^2 = 4m^2 + 4m + 1 = 2(2m^2 + 2m) + 1$. The expression in parentheses is also a natural number, which we can denote as $p = 2m^2 + 2m$. Thus $n^2 = 2p + 1$, which means $n^2$ is also odd. Then from the fact that $P$ is true we reached the conclusion that $Q$ is true, and that completes the proof.
+
+
+\section{Contrapositive Proof}
+We want to prove that $P \implies Q$. Notice that $(P \implies Q) \iff  (\neg Q \implies \neg P)$. By using this method, we assume that $Q$ is false and, by means of a sequence of logical steps, we get to the conclusion that $P$ is also false, which is enough to prove that $P \implies Q$ is true.\\
+
+\textbf{Example 2.1.}\\\\
+\textit{\textbf{Theorem.}} Suppose $m$ and $b$ are real numbers and $m \neq 0$. Let $f$ be the linear function denoted by $f(x) = mx + b$. If $x \neq y$ then $f(x) \neq f(y)$.
+\\\\\textit{\textbf{Proof.}} Here we have $x \neq y$ as proposition $P$ and $Q$ is $f(x) \neq f(y)$. We want to prove that $P \implies Q$, but we are going to use the contrapositive method. So we go from $\neg Q$ to $\neg P$. $\neg Q$ means $f(x) = f(y)$ and so $mx + b = my + b \implies mx = my \implies x = y$, by first adding $-b$ and then dividing by $m$ on both sides. Now $x = y$ is just $\neg P$, so $\neg Q \implies \neg P$, and since this is equivalent to $P \implies Q$, the proof is complete.
+ 
+\section{Proof by Contradiction}
+Again, we want to prove that $P \implies Q$. This implication is false only when we have $P$ true and $Q$ false, that is, $\neg(P \implies q) \iff (P \wedge \neg Q)$. To prove by contradiction, we are going to use the \emph{false} case and show that it leads to $(R \wedge \neg R)$ for some proposition $R$ which will eventually pop up. Since $(R \wedge \neg R)$ is an absurd, the \emph{false} path cannot be right, then $P \implies Q$ must be true. The advantage of this method is that we have two propositions ($P$ and $\neg Q$) from which to start reasoning. It is recommended to use this method when $\neg Q$ gives us new information.\\\\
+For the example bellow, $r \in \mathbb{R}$ is \textit{rational} when there are $m,n \in \mathbb{Z}, n \neq 0,$ such that, $r = m / n$. If $r$ is not rational, then it is \textit{irrational}. \\
+
+\textbf{Example 3.1.}\\\\
+\textit{\textbf{Theorem.}} If $r \in \mathbb{R}$ such that $r^2 = 2$, then $r$ is irrational.
+\\\\\textit{\textbf{Proof.}} $P$ is the proposition  $r^2 = 2$ and $Q$ is ``$r$ is irrational". By contradiction, let us assume that $P$ is true and $Q$ is false, that is, $r^2 = 2$ is true and ``$r$ is rational" is also true. So there exist numbers $m,n \in \mathbb{Z}, n \neq 0,$ such that, $r = m / n$. Suppose $m/n$ is such that there are no common factors between $m$ and $n$ that are greater than $1$. If there are such factors, we can just simplify the fraction dividing both numerator and denominator by these same factors. It follows that $r^2 = 2 \iff (m / n)^2 = 2 \iff m^2 / n^2 = 2 \iff m^2 = 2n^2$. Since $n^2$ is some integer, $2n^2$ is even and the last equation tells us that $m^2$ is even. Now we use the fact that any even number squared is still even (which can easily be proved by contrapositive on example 1.1) to conclude from $m^2$ is even that $m$ is also even. Now, because $m$ is even, we can rewrite $m^2 = 2n^2$ as $(2x)^2 = 2n^2$, for some $x \in \mathbb{Z}$, then we get $(2x)^2 = 2n^2 \iff 4x^2 = 2n^2 \iff 2x^2 = n^2$. Since $x^2$ is some integer, $2x^2$ is even, and so the last equation tells us that $n^2$ is even, which implies that $n$ is an even number. Therefore we have that both $m$ and $n$ are even numbers, so they do have a common factor greater than $1$ ($2$ divides all even numbers). We can see that, if we assume that $m$ and $n$ do not have a common factor greater than $1$ we reach the conclusion that they do have a common factor greater than $1$, which is an absurd. Therefore we cannot have $r^2 = 2$ and ``$r$ is rational", that is, $(P \wedge \neg Q)$ cannot be true, which means the only case where $P \implies Q$ is false just broke apart. The conclusion is that $P \implies Q$ is true and that completes the proof.
+
+
+
+\end{document}
